@@ -1,1 +1,38 @@
-git
+GIT 기본설정
+[system, global, local] 
+: git config --global core.editor "code --wait"
+  git config --global core.autucrlf true
+  git config --global core.safecrlf false
+
+  git config --global user.email
+  git config --global core.name 
+  git config --global init.defalutBranch main
+  
+git init basic
+cd basic
+(하부폴더에 .git 확인)
+[저장소 안에 들어오면 맨 오른쪽에 브랜치 이름(=main)이 등장]
+
+리눅스 명령어
+: pwd 현 폴더 표시
+  cd change directory
+  mkdir 디렉토리 만들기
+  ls-al 파일 리스트 보여줌(-a 숨긴파일 표시, -l 상세정보)
+  touch 빈파일 생성
+  echo 문자열 터미널에 그대로 출력
+  cat fname .txt파일만 가능, 파일 내용 보이기
+  mv f1 f2 파일 f1을 f2로 이름수정
+  rm 파일 삭제(-f: 강제삭제, -r: 디렉토리 내부의 모든내용 삭제)
+
+작업영역
+Working directory --add--> Staging area --commit--> .git
+
+git status [--long|--short|-s] 파일상태 확인해보기
+
+
+* add가 된 시점부터 파일은 tracked 상태
+  commit -am은 첫커밋 이후부터 사용가능
+  git status에 나오는 녹색은 스테이징 영역, 붉은색은 작업 디렉토리
+
+  동일한 파일이 3 영역에 모두다 존재할 경우: nothing to commit, working tree clean
+
