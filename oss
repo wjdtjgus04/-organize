@@ -36,3 +36,16 @@ git status [--long|--short|-s] 파일상태 확인해보기
 
   동일한 파일이 3 영역에 모두다 존재할 경우: nothing to commit, working tree clean
 
+  + feat.사설강의
+ignore: tracking하지 않은 파일상태로 만들기
+echo 파일명 >.gitignore
+(ls-al로 확인가능)
+
+<버전관리개요>
+: 어느 시점의 파일이나 소스의 내용을 확인해보고 상태로 되돌리기(파일추가 및 수정이력 관리)
+:시간 흐름에 따라 파일 집합에 대한 변경사항을 추적및 관리(버전관리시스템)
+
+CLI : 텍스트 입력-텍스트 표시(window의 CMD나 UNIX의 shell이 해당된다)
+GUI : 마우스  + 텍스트 입력 - 결과 표시(소스트리가 이에 해당된다)
+
+
