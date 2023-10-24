@@ -1,0 +1,36 @@
+
+import csv
+import matplotlib.pyplot as plt
+
+def analyze_data(csv_file_path, column_index):
+    data = []  
+
+
+    with open(csv_file_path, 'r') as file:
+        reader = csv.reader(file)
+        next(reader)  
+        for row in reader:
+            
+            data.append(row[column_index])
+    
+
+    data = list(map(int, data))
+    
+    return data
+
+
+def create_line_graph(data):
+ 
+    plt.plot(data)
+    plt.xlabel('X축 라벨')  
+    plt.ylabel('Y축 라벨')  
+    plt.title('인구수 데이터 분석') 
+    plt.show()
+
+
+csv_file_path = '파일 경로를 입력해주세요'
+column_index = 4  
+data = analyze_data(csv_file_path, column_index)
+
+# 데이터를 그래프로 표현하는 함수 호출
+create_line_graph(data)
