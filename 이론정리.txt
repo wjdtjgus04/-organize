@@ -123,3 +123,96 @@ jsp
     %>
 </body>
 </html>
+
+-----------------------------------------------------------
+
+
+변수 및 자료형:
+
+변수 할당: 변수는 값을 저장하는데 사용되며, 자료형은 자료의 종류를 나타냅니다.
+python
+Copy code
+x = 10        # 정수형 변수
+y = 'Hello'   # 문자열 변수
+z = [1, 2, 3]  # 리스트 (여러 값을 담을 수 있는 배열)
+조건문:
+
+if, elif, else: 조건문을 사용하여 특정 조건에 따라 코드 블록을 실행합니다.
+python
+Copy code
+if x > 0:
+    print('양수')
+elif x == 0:
+    print('0')
+else:
+    print('음수')
+반복문:
+
+for 문: 리스트나 범위를 순회하며 반복 작업을 수행합니다.
+while 문: 특정 조건이 만족하는 동안 코드를 반복 실행합니다.
+python
+Copy code
+for item in z:
+    print(item)
+
+while x > 0:
+    print(x)
+    x -= 1
+함수:
+
+함수 정의 및 호출: 함수는 코드를 논리적 단위로 나누고 재사용 가능하게 만듭니다.
+python
+Copy code
+def add(a, b):
+    return a + b
+
+result = add(3, 5)
+클래스:
+
+객체 지향 프로그래밍: 클래스는 관련 데이터와 함수를 묶어 객체를 생성하는데 사용됩니다.
+python
+Copy code
+class MyClass:
+    def __init__(self, value):
+        self.value = value
+    
+    def display(self):
+        print(self.value)
+
+obj = MyClass(42)
+obj.display()
+데이터 처리 및 시각화 라이브러리:
+NumPy (수치 계산):
+
+다차원 배열: 수학 및 통계 연산을 위한 배열과 함수를 제공합니다.
+python
+Copy code
+import numpy as np
+
+arr = np.array([1, 2, 3])
+Pandas (데이터 프레임):
+
+테이블 형태의 데이터 구조: 엑셀과 유사한 데이터프레임을 제공하여 데이터를 쉽게 조작할 수 있습니다.
+python
+Copy code
+import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35]}
+
+df = pd.DataFrame(data)
+Matplotlib (그래프 시각화):
+
+2D 그래픽 라이브러리: 선 그래프, 히스토그램, 산점도 등을 생성하여 데이터를 시각적으로 표현할 수 있습니다.
+python
+Copy code
+import matplotlib.pyplot as plt
+
+x_values = np.arange(0, 10, 0.1)
+y_values = np.sin(x_values)
+
+plt.plot(x_values, y_values)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Sine Wave')
+plt.show()
