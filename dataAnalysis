@@ -121,6 +121,8 @@
 import matplotlib.pyplot as plt
 
 
+
+
 def get_tem_data():
     file = open('sample.csv', 'r', encoding='utf-8')
 
@@ -142,3 +144,48 @@ def display_chart(data):
     plt.title('년도별 평균최고기온 비교하기')
     plt.plot(data, 'hotpink', label='tem_data')
     plt.show()
+
+
+    import csv
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def get_tem_data():
+    file = open('sample.csv', 'r', encoding='utf-8')
+    data = csv.reader(file, delimiter=',')
+    header = next(data)
+
+    tem_data = []
+
+    for line in data:
+        tem = line[5]
+        if tem == '':
+            tem = 0  # 빈 문자열인 경우 0으로 처리
+        else:
+            tem = float(tem)  # 빈 문자열이 아닌 경우 실수로 변환
+        tem_data.append(tem)
+
+    # 데이터가 1907년부터 2023년까지 있는 것으로 가정
+    years = np.arange(1907, 2024)
+
+    # 1907년부터 2023년까지의 연도에 해당하는 데이터를 사용하고, 2024년부터 이후의 데이터는 버립니다
+    tem_data = tem_data[:len(years)]
+
+    return tem_data
+
+
+def display_chart(data):
+    years = np.arange(1907, 2024)  # 1907년부터 2023년까지의 연도 생성
+    plt.rc('font', family='Malgun Gothic')
+    plt.title('년평균 최고기온 비교하기')
+    plt.plot(years, data, color='pink', label='평균최고기온')
+    plt.legend()
+    plt.xlabel('연도')
+    plt.ylabel('평균 최고기온 (°C)')
+    plt.grid(True)
+    plt.show()
+
+
+temperature_data = get_tem_data()
+display_chart(temperature_data)
