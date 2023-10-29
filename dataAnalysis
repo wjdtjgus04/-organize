@@ -116,3 +116,29 @@
 		108,서울,2021,13.7,18.5,36.5,2021-07-24,9.6,-18.6,2021-01-08
 		108,서울,2022,13.2,18.0,36.1,2022-07-30,9.2,-13.7,2022-12-23
 		108,서울,2023,,,35.8,2023-08-08,,-17.3,2023-01-25
+
+        import csv
+import matplotlib.pyplot as plt
+
+
+def get_tem_data():
+    file = open('sample.csv', 'r', encoding='utf-8')
+
+    data = csv.reader(file, delimiter=',')
+    next(data)
+
+    tem_data = []
+
+    for line in data:
+        tem = line[5]
+        if tem != '':
+            tem_data.append(float(tem))
+    return tem_data
+
+
+def display_chart(data):
+    plt.rc('font', family='Malgun Gothic')
+    plt.rc('axes', unicode_minus=False)
+    plt.title('년도별 평균최고기온 비교하기')
+    plt.plot(data, 'hotpink', label='tem_data')
+    plt.show()
