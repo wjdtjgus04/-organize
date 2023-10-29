@@ -189,3 +189,8 @@ def display_chart(data):
 
 temperature_data = get_tem_data()
 display_chart(temperature_data)
+
+from temperature1 import get_tem_data, display_chart
+
+temperature_data = get_tem_data()
+display_chart(temperature_data)
