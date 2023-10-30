@@ -227,3 +227,20 @@ display_chart(temperature_data)
 2023-10-15,108,16.1,10.9,21.2
 2023-10-16,108,14.7,10.7,19.6
 2023-10-17,108,13.8,7.5,20.9
+
+import random
+import matplotlib.pyplot as plt
+import csv
+
+f = open('sampledata.csv','r',encoding='utf8')
+data = csv.reader(f, delimiter=',')
+next(data)
+dice = []
+
+for row in data:
+    if row[-1] != '':
+        dice.append(float(row[-1]))
+
+plt.hist(dice, bins=100, color='red')
+plt.show()
+
