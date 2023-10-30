@@ -244,3 +244,25 @@ for row in data:
 plt.hist(dice, bins=100, color='red')
 plt.show()
 
+import csv
+import matplotlib.pyplot as plt
+f = open('sampledata.csv','r', encoding='utf8')
+data = csv.reader(f, delimiter= ',')
+next(data)
+tem = -999
+date = ''
+
+for row in data:
+    if row[-1] == '':
+        row[-1] = -999
+    row[-1]=float(row[-1])
+
+plt.title("Max Tem")
+plt.plot(row, 'pink', label = "tem")
+
+plt.legend()
+plt.show()
+
+f.close()
+print(date, tem)
+
