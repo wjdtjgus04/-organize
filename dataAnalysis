@@ -353,3 +353,39 @@ plt.legend(loc='upper right')
 plt.xticks(range(-500000, 500001, 100000), rotation=0)
 plt.show()
 
+import csv
+import matplotlib.pyplot as plt
+
+
+def get_data():
+    f = open('3.csv', 'r', encoding="utf8")
+    data = csv.reader(f, delimiter=',')
+    next(data)
+    man = []
+
+    female = []
+
+    test = '전국  (0000000000)'
+
+    for row in data:
+        if test == row[0]:
+            for i in row[3:104]:
+                man.append(-float(i.replace(',', '')))
+            for i in row[106:]:
+                female.append(float(i.replace(',', '')))
+
+    return man, female
+
+
+def display_chart(man, female):
+    plt.rc('font', family='Malgun Gothic')
+    plt.rcParams['axes.unicode_minus'] = False
+    plt.title('2022년 인구수')
+    plt.barh(range(0, 101), man, label='남자', color='skyblue')
+    plt.barh(range(0, 101), female, label='여자', color='pink')
+    plt.legend()
+    plt.show()
+
+
+m, w = get_data()
+display_chart(m, w)
