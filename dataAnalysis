@@ -317,3 +317,39 @@ plt.legend(loc='upper right')
 
 plt.show()
 
+import csv
+import matplotlib.pyplot as plt
+
+f = open('3.csv', 'r', encoding="utf8")
+data = csv.reader(f, delimiter=',')
+next(data)
+man = []
+female = []
+x_data = range(-600000, 600001, 12000)
+test = '전국  (0000000000)'
+
+for row in data:
+    if test == row[0]:
+        for i in row[4:105]:
+            man.append(-int(i.replace(',', '')))
+        for i in row[106:]:
+            female.append(int(i.replace(',', '')))
+
+plt.rcParams['axes.unicode_minus'] = False
+fig, ax = plt.subplots(figsize=(10, 6))
+bar_width = 0.35
+
+# 두 개의 막대 그래프를 나란히 그리기 위해 x 축의 위치를 조정합니다.
+x_data_man = [x - bar_width / 2 for x in x_data]
+x_data_female = [x + bar_width / 2 for x in x_data]
+
+# 막대 그래프 그리기
+ax.barh(x_data_man, man, bar_width, label='Man', color='skyblue')
+ax.barh(x_data_female, female, bar_width, label='Female', color='pink')
+
+plt.xlim(-500000, 500000)
+plt.ylim(1, 100)
+plt.legend(loc='upper right')
+plt.xticks(range(-500000, 500001, 100000), rotation=0)
+plt.show()
+
