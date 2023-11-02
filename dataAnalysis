@@ -401,3 +401,28 @@ plt.axis('equal')
 plt.pie(size, labels=labels, autopct ='%.2f%%')
 plt.legend()
 plt. show()
+
+----------------------------------------------------
+1월과 8월의 데이터를 히스토그램으로 시각화하기
+import csv
+import matplotlib.pyplot as plt
+f= open('seoul.csv')
+data = csv.reader(f)
+next(data)
+aug = []
+jan= []
+#8월의 최고 기온 값을 저장할 aug 리스트 생성
+#1월의 최고 기온 값을 저장할 an 리스트 생성
+for row in data
+month = row[o].split('-')[1] #-로 구분된 값 중 2번째 값을 monih에 저장
+if row[-1] != ''
+if month == '08':
+#8월달이라면
+aug.append(float(row[-1])) #aug 리스트에 최고 기온 값 추가
+#1월달이라면
+if month == "01':
+jan.append(float(row[-1])) #jan 리스트에 최고 기온 값 추가
+plt.hist(aug, bins=100, color='r', label='Aug')
+plt.hist(jan, bins=100, color='b' label="Jan")
+plt.legend()
+plt.show()
