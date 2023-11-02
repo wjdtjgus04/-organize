@@ -389,3 +389,15 @@ def display_chart(man, female):
 
 m, w = get_data()
 display_chart(m, w)
+
+
+
+import matplotlib.pyplot as plt
+
+plt.rc('font', family='Malgun Gothic')
+size = (2441 , 2312,1031,123)
+labels=['A형', 'B형', 'AB형', '0형']
+plt.axis('equal')
+plt.pie(size, labels=labels, autopct ='%.2f%%')
+plt.legend()
+plt. show()
