@@ -420,7 +420,7 @@ if month == '08':
 #8월달이라면
 aug.append(float(row[-1])) #aug 리스트에 최고 기온 값 추가
 #1월달이라면
-if month == "01':
+if month == '01':
 jan.append(float(row[-1])) #jan 리스트에 최고 기온 값 추가
 plt.hist(aug, bins=100, color='r', label='Aug')
 plt.hist(jan, bins=100, color='b' label="Jan")
@@ -441,11 +441,36 @@ day.append([])
 #2 day 리스트 내 31개 리스트 생성
 for row in data
 ..
-if row[-1] !='
+if row[-1] !=''
 if row[0].split('-')[1] == '08': 2e
 #최고 기온 값 저장
 day[int(row[0].split('-')[2])-1].append(float(row[-1
 plt.style.use('ggplot') #0그래프 스타일 지정
 plt.figure(figsize=(10,5), dpi=300) #0 그래프 크기 수정
 plt.boxplot(day, showfliers-False) #6아웃라이어 값 생략
+plt.show()
+
+import CsV
+f= open('gender.csv')
+data = csv.reader(f)
+m=[]
+f=[]
+
+name = input('찾고 싶은 지역의 이름을 알려주세요 :')
+for row in data
+if name in row[0] :
+for i in row[3:104]
+m.append(-int(i))
+for i in row[106:]
+..
+f.append(int(i))
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+plt.figure(figsize=(10,5) dpi=300)
+plt.rc('font', family='Malgun Gothic')
+plt.rcParams['axes.unicode_minus'] =False
+plt. title(name+' 지역의 남녀 성별 인구 분포')
+plt.barh(range(101), m, label='#8')
+plt.barh(range(101), f, label='여성')
+plt.legend()
 plt.show()
