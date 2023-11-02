@@ -539,3 +539,39 @@ plt.pie(data, labels=labels, colors=['blue', 'green', 'red'])
 data: 파이 차트를 그릴 데이터를 담은 리스트 또는 배열
 labels: 파이 차트의 각 부분에 대한 라벨을 담은 리스트 (기본값: None)
 colors: 파이 차트의 각 부분의 색상을 담은 리스트 (기본값: None)
+
+-----------------------------------------------------------------
+import csv
+import matplotlib.pyplot as plt
+import random
+
+
+data_size = 100
+x_values = list(range(1, data_size + 1))
+y_values = [random.randint(1, 100) for _ in range(data_size)]
+
+csv_file_path = '1.csv'
+with open(csv_file_path, 'r', newline='', encoding='utf-8') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(['X', 'Y'])
+    for x, y in zip(x_values, y_values):
+        writer.writerow([x, y])
+
+
+x_values = []
+y_values = []
+
+with open(csv_file_path, 'r', newline='', encoding='utf-8') as file:
+    reader = csv.reader(file)
+    next(reader)  
+    for row in reader:
+        x_values.append(int(row[0]))
+        y_values.append(float(row[1]))
+
+
+plt.scatter(x_values, y_values, c='b', marker='o', alpha=0.7, edgecolors='k')
+plt.title('예제')
+plt.xlabel('X-축')
+plt.ylabel('Y-축')
+plt.grid(True)
+plt.show()
