@@ -503,3 +503,39 @@ pie(): 원 그래프를 그리는 함수
 xlabel(), ylabel(): x축, y축의 레이블을 설정하는 함수
 title(): 그래프의 제목을 설정하는 함수
 legend(): 범례(legend)를 추가하는 함수
+
+---------------------------------------------------------------------------------
+1. plot() 함수:
+
+plt.plot(x, y, marker='o', linestyle='-', color='blue')
+x: x축 값들을 담은 리스트 또는 배열
+y: y축 값들을 담은 리스트 또는 배열
+marker: 데이터 포인트를 나타내는 마커의 모양 (기본값: 'o')
+linestyle: 선의 스타일 (기본값: '-')
+color: 선의 색상 (기본값: 'blue')
+2. scatter() 함수:
+
+plt.scatter(x, y, marker='o', color='blue')
+x: x축 값들을 담은 리스트 또는 배열
+y: y축 값들을 담은 리스트 또는 배열
+marker: 데이터 포인트를 나타내는 마커의 모양 (기본값: 'o')
+color: 데이터 포인트의 색상 (기본값: 'blue')
+3. bar() 함수:
+
+plt.bar(x, height, width=0.8, color='blue')
+x: x축 값들을 담은 리스트 또는 배열
+height: 막대의 높이를 나타내는 값들을 담은 리스트 또는 배열
+width: 막대의 너비 (기본값: 0.8)
+color: 막대의 색상 (기본값: 'blue')
+4. hist() 함수:
+
+plt.hist(data, bins=10, color='blue')
+data: 히스토그램을 그릴 데이터를 담은 리스트 또는 배열
+bins: 구간(bin)의 개수 (기본값: 10)
+color: 히스토그램의 막대 색상 (기본값: 'blue')
+5. pie() 함수:
+
+plt.pie(data, labels=labels, colors=['blue', 'green', 'red'])
+data: 파이 차트를 그릴 데이터를 담은 리스트 또는 배열
+labels: 파이 차트의 각 부분에 대한 라벨을 담은 리스트 (기본값: None)
+colors: 파이 차트의 각 부분의 색상을 담은 리스트 (기본값: None)
