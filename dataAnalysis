@@ -575,3 +575,20 @@ plt.xlabel('X-축')
 plt.ylabel('Y-축')
 plt.grid(True)
 plt.show()
+
+------------------------------------------------------------------------------
+import matplotlib.pyplot as plt
+import csv
+import random
+
+data_size = 50
+x_values = list(range(1, data_size + 1))
+y_values = [random.randint(1, 100) for _ in range(data_size)]
+
+
+plt.plot(x_values, y_values, marker='o', linestyle='-', color='b')
+plt.title('간단한 라인 플롯 예제')
+plt.xlabel('X-축')
+plt.ylabel('Y-축')
+plt.grid(True)
+plt.show()
