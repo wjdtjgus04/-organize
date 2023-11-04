@@ -621,3 +621,13 @@ plt.xlabel('X-축')
 plt.ylabel('Y-축')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.show()
+
+
+labels = ['Category A', 'Category B', 'Category C', 'Category D']
+sizes = [20, 30, 25, 25]
+colors = ['gold', 'lightskyblue', 'lightcoral', 'lightgreen']
+
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, startangle=140)
+plt.axis('equal')  # 원형 유지
+plt.title('파이 차트')
+plt.show()
