@@ -216,3 +216,53 @@ plt.xlabel('X-axis')
 plt.ylabel('Y-axis')
 plt.title('Sine Wave')
 plt.show()
+
+-------------------------------------------------------------------------------------------
+
+1. 도서 클래스 (Book Class):
+java
+Copy code
+public class Book {
+    private String title;
+    private String author;
+    private int pageCount;
+
+    
+    public Book(String title, String author, int pageCount) {
+        this.title = title;
+        this.author = author;
+        this.pageCount = pageCount;
+    }
+
+   
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public int getPageCount() {
+        return pageCount;
+    }
+
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
+    }
+
+    public void displayInfo() {
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Page Count: " + pageCount);
+    }
+}
+
