@@ -1,0 +1,125 @@
+1. 자바빈즈 (JavaBeans):
+java
+
+// JavaBean 클래스 예시
+public class UserBean {
+    private String username;
+    private int age;
+
+    // 기본 생성자
+    public UserBean() {}
+
+    // 초기화를 위한 생성자
+    public UserBean(String username, int age) {
+        this.username = username;
+        this.age = age;
+    }
+
+    // 속성에 대한 getter 및 setter 메서드
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    // toString 메서드
+    @Override
+    public String toString() {
+        return "UserBean{" +
+                "username='" + username + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+2. 표현언어 (Expression Language, EL) 및 JSP:
+jsp
+
+<%@ page import="example.UserBean" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>JSP 및 EL 예시</title>
+</head>
+<body>
+    <jsp:useBean id="user" class="example.UserBean" />
+
+    <%-- 속성 설정 --%>
+    <jsp:setProperty name="user" property="username" value="John Doe" />
+    <jsp:setProperty name="user" property="age" value="25" />
+
+    <%-- EL을 사용하여 속성에 접근 --%>
+    <p>이름: ${user.username}</p>
+    <p>나이: ${user.age}</p>
+
+    <%-- JSP 내에서 Java 코드로 객체 생성하여 초기화 --%>
+    <%
+        UserBean anotherUser = new UserBean("Alice", 30);
+    %>
+
+    <p>다른 사용자 이름: ${anotherUser.username}</p>
+    <p>다른 사용자 나이: ${anotherUser.age}</p>
+</body>
+</html>
+
+3. JDBC (Java Database Connectivity)와 JSP:
+jsp
+
+<%@ page import="java.sql.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>JDBC 및 JSP 예시</title>
+</head>
+<body>
+    <%
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // 드라이버 로드
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 커넥션 생성
+            String url = "jdbc:mysql://localhost:3306/example";
+            String username = "yourUsername";
+            String password = "yourPassword";
+            connection = DriverManager.getConnection(url, username, password);
+
+            // SQL 쿼리 실행
+            String sql = "SELECT * FROM users WHERE age > ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, 20);
+            resultSet = preparedStatement.executeQuery();
+
+            // 결과 출력
+            while (resultSet.next()) {
+                out.println("<p>이름: " + resultSet.getString("username") + "</p>");
+                out.println("<p>나이: " + resultSet.getInt("age") + "</p>");
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 리소스 정리
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    %>
+</body>
+</html>
