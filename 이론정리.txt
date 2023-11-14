@@ -410,3 +410,49 @@ public class BankAccount {
         System.out.println("잔액: " + balance);
     }
 }
+
+----------------------------------------------------------------------------------------------------
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+// 여기에 Dog 클래스를 작성하세요.
+답안 1:
+java
+Copy code
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();
+        dog.bark();
+    }
+}
+---------------------------------------------------------------------------------
+
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle is starting");
+    }
+}
+
+// 여기에 Car 클래스를 작성하세요.
+답안 2:
+java
+Copy code
+class Car extends Vehicle {
+    void drive() {
+        System.out.println("Car is driving");
+    }
+
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.start();
+        car.drive();
+    }
+}
