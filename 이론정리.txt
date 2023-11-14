@@ -456,3 +456,27 @@ class Car extends Vehicle {
         car.drive();
     }
 }
+
+-------------------------------------------------------------------------
+
+class Person {
+    void eat() {
+        System.out.println("Person is eating");
+    }
+}
+
+// 여기에 Student 클래스를 작성하세요.
+답안 3:
+java
+Copy code
+class Student extends Person {
+    void study() {
+        System.out.println("Student is studying");
+    }
+
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.eat();
+        student.study();
+    }
+}
