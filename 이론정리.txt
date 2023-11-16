@@ -510,3 +510,52 @@ class Manager extends Employee {
         manager.manage();
     }
 }
+
+------------------------------------------------------------------------------------------------------
+
+class Bird {
+    void fly() {
+        System.out.println("Bird is flying");
+    }
+}
+
+// 여기에 Penguin 클래스를 작성하세요.
+
+class Penguin extends Bird {
+    void swim() {
+        System.out.println("Penguin is swimming");
+    }
+
+    public static void main(String[] args) {
+        Penguin penguin = new Penguin();
+        penguin.fly(); // 펭귄은 날지 못하므로 fly 메서드 호출은 의미 없음
+        penguin.swim();
+    }
+}
+
+===========================================================================================
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+// 여기에 Dog 클래스를 작성하세요.
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+
+    @Override
+    void eat() {
+        super.eat(); // 부모 클래스의 eat 메서드 호출
+        System.out.println("Dog is eating too");
+    }
+
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();
+        dog.bark();
+    }
+}
+
