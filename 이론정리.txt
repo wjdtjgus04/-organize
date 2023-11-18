@@ -558,4 +558,29 @@ class Dog extends Animal {
         dog.bark();
     }
 }
+--------------------------------------------------------------------
 
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle is starting");
+    }
+}
+
+// 여기에 Car 클래스를 작성하세요.
+
+class Car extends Vehicle {
+    void drive() {
+        System.out.println("Car is driving");
+    }
+
+    @Override
+    void start() {
+        super.start(); // 부모 클래스의 start 메서드 호출
+        System.out.println("Car is starting too");
+    }
+
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.start();
+        car.drive();
+    }
