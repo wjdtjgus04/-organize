@@ -621,3 +621,22 @@ class Circle extends Shape {
         myCircle.draw();  // Circle 클래스에서 오버라이딩한 메서드가 호출됨
     }
 }
+--------------------------------------------------------------------------------------------------
+
+class Shape {
+    void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle");
+    }
+
+    public static void main(String[] args) {
+        Circle myCircle = new Circle();
+        myCircle.draw();  // Circle 클래스에서 오버라이딩한 메서드가 호출됨
+    }
+}
