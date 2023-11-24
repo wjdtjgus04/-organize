@@ -640,3 +640,23 @@ class Circle extends Shape {
         myCircle.draw();  // Circle 클래스에서 오버라이딩한 메서드가 호출됨
     }
 }
+
+----------------------------------------------------------------------------------
+
+class Bird {
+    void fly() {
+        System.out.println("Bird is flying");
+    }
+}
+
+class Penguin extends Bird {
+    @Override
+    void fly() {
+        System.out.println("Penguin can't fly");
+    }
+
+    public static void main(String[] args) {
+        Penguin myPenguin = new Penguin();
+        myPenguin.fly();  // Penguin 클래스에서 오버라이딩한 메서드가 호출됨
+    }
+}
