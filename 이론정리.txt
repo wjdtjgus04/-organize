@@ -584,3 +584,21 @@ class Car extends Vehicle {
         car.start();
         car.drive();
     }
+    -----------------------------------------------------------------------------------------------
+    class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.makeSound();  // Dog 클래스에서 오버라이딩한 메서드가 호출됨
+    }
+}
