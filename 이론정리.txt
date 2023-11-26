@@ -660,3 +660,36 @@ class Penguin extends Bird {
         myPenguin.fly();  // Penguin 클래스에서 오버라이딩한 메서드가 호출됨
     }
 }
+
+
+-----------------------------------------------------------------------
+
+public class PublicExample {
+    public void printMessage() {
+        System.out.println("This is a public method");
+    }
+
+    public static void main(String[] args) {
+        PublicExample example = new PublicExample();
+        example.printMessage();
+    }
+
+
+}
+
+-----------------------------------------------------------------
+
+class PrivateExample {
+    private int count;
+
+    private void increment() {
+        count++;
+    }
+
+    public static void main(String[] args) {
+        PrivateExample example = new PrivateExample();
+        // 아래 주석 해제 시 컴파일 오류 발생
+        // example.increment();
+    }
+}
+
