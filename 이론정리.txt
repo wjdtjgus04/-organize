@@ -712,4 +712,18 @@ class Dog extends Animal {
         dog.bark();
     }
 }
+------------------------------------------------------------------------------
+
+class StaticExample {
+    static int count = 0;
+
+    static void increment() {
+        count++;
+    }
+
+    public static void main(String[] args) {
+        StaticExample.increment();
+        System.out.println("Count: " + StaticExample.count);
+    }
+}
 
