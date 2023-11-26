@@ -727,3 +727,20 @@ class StaticExample {
     }
 }
 
+---------------------------------------------------------------------
+
+class FinalExample {
+    final int value = 10;
+
+    final void printValue() {
+        System.out.println("Value: " + value);
+    }
+
+    public static void main(String[] args) {
+        FinalExample example = new FinalExample();
+        example.printValue();
+        // 아래 주석 해제 시 컴파일 오류 발생
+        // example.value = 20;
+    }
+}
+
