@@ -778,4 +778,31 @@ public class PolymorphicArrayExample {
         }
     }
 }
+--------------------------------------------------------------
+
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+}
+
+public class DowncastingExample {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();  // 업캐스팅
+        myDog.eat();               // Animal 클래스의 메서드 호출
+
+        // 다운캐스팅
+        if (myDog instanceof Dog) {
+            Dog myRealDog = (Dog) myDog;  // 다운캐스팅
+            myRealDog.bark();            // 다운캐스팅 후에는 bark 메서드 호출 가능
+        }
+    }
+}
+
 
