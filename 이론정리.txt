@@ -859,6 +859,27 @@ class Calculator {
         calc.displayResult(mySquare);  // 업캐스팅 후 메서드 호출
     }
 }
+---------------------------------------------------------------------------------------
+
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class UpcastingOverrideExample {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();  // 업캐스팅
+        myDog.makeSound();         // Dog 클래스에서 오버라이딩한 메서드 호출
+    }
+}
 
 
 
