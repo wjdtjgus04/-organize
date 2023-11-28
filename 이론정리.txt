@@ -804,5 +804,37 @@ public class DowncastingExample {
         }
     }
 }
+class Shape {
+    void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+class Square extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a square");
+    }
+}
+
+public class UpcastingExample {
+    public static void main(String[] args) {
+        Shape[] shapes = new Shape[3];
+        shapes[0] = new Circle();
+        shapes[1] = new Square();
+        shapes[2] = new Circle();
+
+        for (Shape shape : shapes) {
+            shape.draw();  // 다형성: 배열 내에 각 객체의 실제 타입에 따라 다른 메서드 호출
+        }
+    }
+}
 
 
