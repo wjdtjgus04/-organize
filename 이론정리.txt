@@ -880,6 +880,34 @@ public class UpcastingOverrideExample {
         myDog.makeSound();         // Dog 클래스에서 오버라이딩한 메서드 호출
     }
 }
+--------------------------------------------------------------------------------
+
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class SoundMachine {
+    Animal createAnimal() {
+        return new Dog();  // 업캐스팅하여 반환
+    }
+}
+
+public class PolymorphicReturnTypeExample {
+    public static void main(String[] args) {
+        SoundMachine machine = new SoundMachine();
+        Animal myAnimal = machine.createAnimal();  // 업캐스팅된 객체 반환
+        myAnimal.makeSound();                      // Dog 클래스에서 오버라이딩한 메서드 호출
+    }
+}
 
 
 
