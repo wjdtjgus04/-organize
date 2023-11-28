@@ -909,5 +909,36 @@ public class PolymorphicReturnTypeExample {
     }
 }
 
+------------------------------------------------------------------------------------
+
+abstract class Shape {
+    abstract void draw();  // 추상 메서드 선언
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+class Square extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a square");
+    }
+}
+
+public class AbstractClassExample {
+    public static void main(String[] args) {
+        Shape circle = new Circle();
+        Shape square = new Square();
+
+        circle.draw();  // Circle 클래스에서 오버라이딩한 draw 메서드 호출
+        square.draw();  // Square 클래스에서 오버라이딩한 draw 메서드 호출
+    }
+}
+
+
 
 
