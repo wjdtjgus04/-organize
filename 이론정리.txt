@@ -939,6 +939,32 @@ public class AbstractClassExample {
     }
 }
 
+---------------------------------------------------------------------------------
+
+abstract class Animal {
+    abstract void makeSound();  // 추상 메서드
+
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class AbstractMethodExample {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();
+        myDog.makeSound();  // Dog 클래스에서 오버라이딩한 추상 메서드 호출
+        myDog.eat();        // Animal 클래스의 일반 메서드 호출
+    }
+}
+
+
 
 
 
