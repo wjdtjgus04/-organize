@@ -837,4 +837,28 @@ public class UpcastingExample {
     }
 }
 
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    void displayResult(Shape shape) {
+        shape.draw();
+    }
+
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        Circle myCircle = new Circle();
+        Square mySquare = new Square();
+
+        calc.displayResult(myCircle);  // 업캐스팅 후 메서드 호출
+        calc.displayResult(mySquare);  // 업캐스팅 후 메서드 호출
+    }
+}
+
+
 
