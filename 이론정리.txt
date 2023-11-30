@@ -1001,6 +1001,55 @@ public class AbstractFrameworkExample {
     }
 }
 
+-------------------------------------------------------------------
+
+abstract class CoffeeTemplate {
+    final void makeCoffee() {
+        boilWater();
+        brewCoffeeGrounds();
+        pourInCup();
+        addCondiments();
+        System.out.println("Coffee is ready!");
+    }
+
+    abstract void boilWater();
+
+    abstract void brewCoffeeGrounds();
+
+    abstract void pourInCup();
+
+    abstract void addCondiments();
+}
+
+class CoffeeWithHook extends CoffeeTemplate {
+    @Override
+    void boilWater() {
+        System.out.println("Boiling water");
+    }
+
+    @Override
+    void brewCoffeeGrounds() {
+        System.out.println("Brewing coffee grounds");
+    }
+
+    @Override
+    void pourInCup() {
+        System.out.println("Pouring coffee into cup");
+    }
+
+    @Override
+    void addCondiments() {
+        System.out.println("Adding sugar and milk");
+    }
+}
+
+public class TemplateMethodPatternExample {
+    public static void main(String[] args) {
+        CoffeeTemplate coffee = new CoffeeWithHook();
+        coffee.makeCoffee();
+    }
+}
+
 
 
 
