@@ -1049,7 +1049,36 @@ public class TemplateMethodPatternExample {
         coffee.makeCoffee();
     }
 }
+-----------------------------------------------
 
+interface Swim {
+    void swim();
+}
+
+interface Fly {
+    void fly();
+}
+
+class Bird implements Swim, Fly {
+    @Override
+    public void swim() {
+        System.out.println("Bird is swimming");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("Bird is flying");
+    }
+}
+
+public class MultipleInterfacesExample {
+    public static void main(String[] args) {
+        Bird bird = new Bird();
+        bird.swim();
+        bird.fly();
+    }
+}
+----------------------------------------------------------------
 
 
 
