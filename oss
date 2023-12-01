@@ -146,3 +146,41 @@ git branch -v 마지막 커밋아이디
 
 git branch -D 강제삭제
                    -d 삭제
+
+it merge branch_name
+ branch_name 브랜치의 변경 내용을 현재 브랜치로 병합
+
+--no-ff (Fast Forward 머지 방지, 3-way로):
+
+
+git merge --no-ff branch_name
+--no-ff 옵션을 사용하면 항상 새로운 머지 커밋을 만들어 강제로 fast-forward 머지를 방지
+
+--squash:
+
+git merge --squash branch_name
+--squash 옵션은 브랜치의 모든 변경 사항을 하나의 커밋으로 압축해 병합, 하나의 큰 커밋으로 변경 이력을 간소화할 수 있다.
+
+--commit:
+
+git merge --commit -m "커스텀 커밋 메시지" branch_name
+--commit 옵션은 병합 시 커밋 메시지를 지정할 수 있게 해줍니다.
+
+--abort:
+
+
+git merge --abort
+병합 중에 문제가 발생하면 --abort 옵션을 사용해 머지를 취소하고 이전 상태로 돌아감
+
+--no-edit (기본 커밋 메시지 사용):
+
+git merge --no-edit branch_name
+--no-edit 옵션은 병합 커밋 메시지를 편집하지 않고 기본 메시지를 사용
+
+--edit (커밋 메시지 편집):
+
+
+git merge --edit branch_name
+--edit 옵션은 병합 시 커밋 메시지를 편집할 수 있게 해준다
+
+충돌발생시 (브랜치 명|MERGING)이 등장하는데 이때 현재 브랜치에 있는 파일 혹은 수정내용이 있는 다른 브랜치의 파일의 내용을 선택할건지 고려함
