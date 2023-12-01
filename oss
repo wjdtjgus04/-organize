@@ -232,3 +232,40 @@ git stash drop [stash@{n}]:
 특정 스태시를 삭제, 지정하지 않을 경우 가장 최근의 스태시가 삭제
 
 git stash clear: 모든 스태시 삭제
+
+git rebase:
+
+
+git rebase 명령어는 브랜치의 기록을 다른 브랜치 위로 옮기기, 머지는 브랜치를 옮기고 rebase는 공통조상의 위치를 옮김
+
+-i 또는 --interactive:
+
+git rebase -i HEAD~3
+-i 옵션은 대화형 모드 편집기로각 커밋에 대한 작업을 선택하고 순서를 변경가능
+Pick: 그대로
+Reword:개별 커밋메세지 작성
+Squash: 커밋을 이전커밋에 결합
+Drop: 커밋삭제
+
+-m 또는 --merge:
+
+git rebase -m branch_name
+병합 커밋 이후의 변경 사항만을 새로운 기준 브랜치에 적용합
+
+
+-c 또는 --continue:
+
+git rebase -c
+-c 옵션은 rebase 중에 일시 중단된 작업을 계속함
+
+--skip:
+
+git rebase --skip
+--skip 옵션은 현재 커밋을 건너뛰고 다음 커밋으로 이동
+
+--abort:
+
+git rebase --abort
+--abort 옵션은 rebase 작업을 중단하고 원래 브랜치로 돌아가기
+
+--amend 옵션: 커밋이력 수정
