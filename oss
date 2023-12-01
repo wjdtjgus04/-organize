@@ -201,3 +201,34 @@ FSW: 리처드 스톨먼, 자유소프트웨어 재단설립(GNU: 자유소프�
          LGPL(weak copyleft): 오픈소스 라이브러리에 대한 소스코드만 공개,몽고DB
          APACHE(none copyleft): 소스코드 수정 후 배포시 무조건 명시 , 안드로이드 하둡
          MIT(none copyleft): 학생을 위한 라이선스, 저작권 명시 의무, 최소한의 제한사항, 파이어폭스 v2.1
+         
+git stash:
+
+last in frist out형식의 스택구조를 가진다. 파일의 변경사항을 숨기는데 도움을 준다.
+
+--index: 스테이징 영역까지
+--keep index, -k: 스테이징 영역제외
+--include -untracked,-u: 트래킹되지 않은 파일도 포함
+-p,-path: 대화형 프롬포트 저장할 파일 지정
+
+
+
+git stash save "message": 스태시를 저장할 때  메시지를 지정
+
+git stash list: 저장된 스태시 목록을 확인(각 스태시는 고유한 식별자와 저장 시간이 표시)
+
+git stash show: 커밋된 자료랑 스태시 항목간 차이 표시(-p 필요)
+
+git stash apply [stash@{n}]: 
+
+가장 최근의 스태시를 적용, 특정 스태시를 적용하려면 [stash@{n}] 부분에 스태시의 인덱스 번호를 지정
+
+git stash pop [stash@{n}]: 
+
+가장 최근의 스태시를 적용하고 해당 스태시를 삭제 특정 스태시를 적용하려면 [stash@{n}] 부분에 스태시의 인덱스 번호를 지정(apply + drop)
+
+git stash drop [stash@{n}]: 
+
+특정 스태시를 삭제, 지정하지 않을 경우 가장 최근의 스태시가 삭제
+
+git stash clear: 모든 스태시 삭제
