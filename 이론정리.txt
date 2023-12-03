@@ -1164,5 +1164,38 @@ public class User implements Serializable {
     // toString method
 }
 
+// /src/com/example/UserDao.java
+package com.example;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserDao {
+
+    public List<User> getAllUsers() {
+        List<User> userList = new ArrayList<>();
+
+        try (Connection connection = ConnectionPoolManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users");
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                User user = new User();
+                user.setUsername(resultSet.getString("username"));
+                user.setEmail(resultSet.getString("email"));
+                userList.add(user);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userList;
+    }
+}
 
 
