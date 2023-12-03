@@ -1080,7 +1080,20 @@ public class MultipleInterfacesExample {
 }
 ----------------------------------------------------------------
 
-
+/webapp
+    /WEB-INF
+        /lib
+            - commons-dbcp2-x.x.x.jar
+            - commons-pool2-x.x.x.jar
+            - mysql-connector-java-x.x.x.jar
+        web.xml
+    index.jsp
+    result.jsp
+    /src
+        /com/example
+            ConnectionPoolManager.java
+            User.java
+            UserDao.java
 
 
 
