@@ -1250,3 +1250,16 @@ public class UserDao {
 
 </body>
 </html>
+---------------------------------------------------------------------------------------------
+/webapp
+    /WEB-INF
+        /lib
+            - mysql-connector-java-x.x.x.jar
+        web.xml
+    index.jsp
+    result.jsp
+    /src
+        /com/example
+            DBConnector.java
+            User.java
+            UserDao.java
