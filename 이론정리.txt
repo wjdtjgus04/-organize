@@ -1299,4 +1299,18 @@ public class DBConnector {
         return DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
     }
 }
+// /src/com/example/User.java
+package com.example;
+
+import java.io.Serializable;
+
+public class User implements Serializable {
+
+    private String username;
+    private String email;
+
+    // getters and setters
+
+    // toString method
+}
 
