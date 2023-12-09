@@ -1348,4 +1348,42 @@ public class UserDao {
         return userList;
     }
 }
+-----------------------------------------------------------------------------
+<!-- /webapp/index.jsp -->
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.User" %>
+<%@ page import="com.example.UserDao" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>JSP Database Connection Example</title>
+</head>
+<body>
+
+<%
+    UserDao userDao = new UserDao();
+    List<User> userList = userDao.getAllUsers();
+%>
+
+<h1>User List:</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for (User user : userList) { %>
+        <tr>
+            <td><%= user.getUsername() %></td>
+            <td><%= user.getEmail() %></td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
+
+</body>
+</html>
 
