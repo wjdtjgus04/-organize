@@ -1386,4 +1386,18 @@ public class UserDao {
 
 </body>
 </html>
+------------------------------------------------------------------------------------------------------------------
+<!-- /webapp/result.jsp -->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>JSP Database Connection Example</title>
+</head>
+<body>
+
+<h1>Result Page</h1>
+
+</body>
+</html>
+
 
