@@ -1473,3 +1473,79 @@ SVM은 커널 기법을 사용하여 데이터를 고차원 공간으로 매핑�
 경사 하강법은 여러 최적화 알고리즘과 함께 사용됩니다. 예를 들면 모멘텀 최적화, RMSprop, Adam 등이 있습니다.
 각각의 알고리즘은 문제의 특성에 따라 선택되며, 학습률, 최적화 알고리즘, 하이퍼파라미터 등의 조절이 중요합니다.
 
+-----------------------------------------------------------------------------------------------------------------
+import java.util.Random;
+import java.util.Scanner;
+
+// 추상화 클래스 - 게임
+abstract class Game {
+    protected int targetNumber;
+    protected int userGuess;
+    protected int attempts;
+    protected Scanner scanner;
+
+    // 생성자
+    public Game() {
+        this.scanner = new Scanner(System.in);
+    }
+
+    // 추상 메서드 - 게임 실행
+    public abstract void play();
+
+    // 일반 메서드 - 게임 초기화
+    protected void initializeGame() {
+        Random random = new Random();
+        targetNumber = random.nextInt(100) + 1;
+        attempts = 0;
+    }
+
+    // 일반 메서드 - 게임 종료 시 리소스 정리
+    protected void cleanupGame() {
+        scanner.close();
+    }
+}
+
+// 구체적인 게임 클래스 - 숫자 맞추기 게임
+class NumberGuessingGame extends Game {
+
+    // 생성자
+    public NumberGuessingGame() {
+        super();
+    }
+
+    // 게임 실행 메서드
+    @Override
+    public void play() {
+        System.out.println("Welcome to the Number Guessing Game!");
+        System.out.println("I have selected a number between 1 and 100. Try to guess it!");
+
+        initializeGame();
+
+        do {
+            System.out.print("Enter your guess: ");
+            userGuess = scanner.nextInt();
+            attempts++;
+
+            if (userGuess < targetNumber) {
+                System.out.println("Too low! Try again.");
+            } else if (userGuess > targetNumber) {
+                System.out.println("Too high! Try again.");
+            } else {
+                System.out.println("Congratulations! You guessed the number in " + attempts + " attempts.");
+            }
+
+        } while (userGuess != targetNumber);
+
+        cleanupGame();
+    }
+}
+
+public class GameExample {
+    public static void main(String[] args) {
+        // 추상화 클래스를 이용한 다형성 예제
+        Game numberGuessingGame = new NumberGuessingGame();
+        numberGuessingGame.play();
+    }
+}
+
+
