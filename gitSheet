@@ -39,3 +39,52 @@ git rm [파일명]: 파일을 삭제
 git mv [이전 파일명] [새 파일명]: 파일을 이동, 이름을 변경
 git help [명령어]: 특정 Git 명령어에 대한 도움말을 표시합니다.
 git --version: 현재 설치된 Git의 버전을 표시합니다.
+
+git clone+pull&push
+git clone <repository_url>
+
+# 새로운 저장소 초기화
+git init
+
+# 원격 저장소에서 최신 정보 가져오기 
+git pull origin <branch_name>
+
+# 원격 저장소로 변경사항 전송
+git push origin <branch_name>
+
+
+브랜치 관리
+# 브랜치 생성
+git branch <branch_name>
+
+# 브랜치 전환
+git checkout <branch_name>
+
+# 브랜치 생성 및 전환
+git checkout -b <new_branch_name>
+
+# 브랜치 병합 (Merge)
+git merge <branch_name>
+
+# 브랜치 리베이스 (Rebase)
+git rebase <base_branch_name>
+
+
+# 변경 이력 취소 (Revert)
+git revert <commit_hash>
+
+# 변경 이력 강제 삭제 (Reset)
+git reset --hard <commit_hash>
+
+# 변경 이력 강제 삭제 후 원격 저장소에 적용 (Reset + Force Push)
+git push origin <branch_name> --force
+
+작업 중인 내용 임시 저장
+# 작업 중인 내용 스태시 (Stash)
+git stash
+
+# 스태시 목록 확인
+git stash list
+
+# 스태시 적용
+git stash apply
